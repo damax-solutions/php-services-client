@@ -1,0 +1,22 @@
+{
+  "require": {
+    "php-http/httplug": "^1.1",
+    "php-http/client-common": "^1.7",
+    "php-http/discovery": "^1.4"
+  },
+  "autoload": {
+    "psr-4": { "Damax\\Client\\": "src/" }
+  },
+  "autoload-dev": {
+    "psr-4": { "Damax\\Client\\Tests\\": "tests/" }
+  },
+  "require-dev": {
+    "php-http/mock-client": "^1.1",
+    "friendsofphp/php-cs-fixer": "^2.10",
+    "php-http/logger-plugin": "^1.0",
+    "symfony/phpunit-bridge": "^4.0",
+    "php-http/guzzle6-adapter": "^1.1",
+    "symfony/debug": "^4.0",
+    "symfony/var-dumper": "^4.0"
+  }
+}
