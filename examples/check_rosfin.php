@@ -1,6 +1,7 @@
 <?php
+
 // Usage:
-// $ php examples/passport_check.php
+// $ php examples/check_rosfin.php
 
 declare(strict_types=1);
 
@@ -12,7 +13,7 @@ $config = new Configuration('https://product.damax.solutions/api', 'token');
 
 $result = $config
     ->getClient()
-    ->checkPassport('74 05 558551')
+    ->checkRosfin('Соколовский Руслан Геннадьевич')
 ;
 
 dump($result);

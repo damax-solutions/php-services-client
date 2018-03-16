@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Damax\Client;
 
-class PassportCheck
+final class PassportCheck
 {
     private const PASSED = 1;
     private const FAILED = 2;
