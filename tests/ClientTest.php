@@ -88,6 +88,9 @@ class ClientTest extends TestCase
         $this->httpClient->addResponse($response);
 
         $this->assertSame($stream, $this->client->downloadPassportCheck('0123456789'));
+
+        $request = $this->httpClient->getLastRequest();
+        $this->assertEquals('/mvd/passports/check', $request->getUri()->getPath());
     }
 
     /**

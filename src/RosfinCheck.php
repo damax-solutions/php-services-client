@@ -6,6 +6,8 @@ namespace Damax\Client;
 
 final class RosfinCheck
 {
+    private const TYPE_PERSON = 4;
+
     private $data;
 
     public function __construct(array $data)
@@ -21,6 +23,11 @@ final class RosfinCheck
     public function type(): int
     {
         return $this->data['type'];
+    }
+
+    public function person(): bool
+    {
+        return self::TYPE_PERSON === $this->type();
     }
 
     public function fullName(): array
