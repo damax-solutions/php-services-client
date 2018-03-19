@@ -64,4 +64,9 @@ final class RosfinCheck
     {
         return $this->data['passport'] ?? null;
     }
+
+    public function toArray(): array
+    {
+        return $this->data;
+    }
 }

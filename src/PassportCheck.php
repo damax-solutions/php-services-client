@@ -56,4 +56,9 @@ final class PassportCheck
     {
         return $this->data['number'] ?? null;
     }
+
+    public function toArray(): array
+    {
+        return $this->data;
+    }
 }
