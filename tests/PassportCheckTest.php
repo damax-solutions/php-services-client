@@ -49,5 +49,10 @@ class PassportCheckTest extends TestCase
         $this->assertFalse($result->passed());
         $this->assertNull($result->series());
         $this->assertNull($result->number());
+        $this->assertEquals([
+            'source' => '743',
+            'code' => 3,
+            'message' => 'Malformed passport',
+        ], $result->toArray());
     }
 }

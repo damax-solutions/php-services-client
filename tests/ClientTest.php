@@ -6,6 +6,7 @@ namespace Damax\Client\Tests;
 
 use Damax\Client\Client;
 use Damax\Client\InvalidRequestException;
+use Damax\Client\RosfinItem;
 use Http\Client\Common\HttpMethodsClient;
 use Http\Message\MessageFactory;
 use Http\Message\MessageFactory\GuzzleMessageFactory;
@@ -116,22 +117,28 @@ class ClientTest extends TestCase
     public function it_checks_rosfin()
     {
         $response = $this->messageFactory->createResponse(200, 'OK', [], json_encode([
-            'id' => 123,
-            'type' => 4,
-            'fullName' => ['John Doe', 'Jane Doe'],
-            'birthDate' => '1983-20-01',
-            'birthPlace' => 'London',
+            [
+                'id' => 123,
+                'type' => 4,
+                'fullName' => ['John Doe', 'Jane Doe'],
+                'birthDate' => '1983-20-01',
+                'birthPlace' => 'London',
+            ],
         ]));
 
         $this->httpClient->addResponse($response);
 
         $result = $this->client->checkRosfin('Jane Doe', '1983-20-01');
+        $this->assertCount(1, $result);
 
-        $this->assertEquals(123, $result->id());
-        $this->assertEquals(4, $result->type());
-        $this->assertEquals(['John Doe', 'Jane Doe'], $result->fullName());
-        $this->assertEquals('1983-20-01', $result->birthDate());
-        $this->assertEquals('London', $result->birthPlace());
+        /** @var RosfinItem $item */
+        $item = iterator_to_array($result)[0];
+
+        $this->assertEquals(123, $item->id());
+        $this->assertEquals(4, $item->type());
+        $this->assertEquals(['John Doe', 'Jane Doe'], $item->fullName());
+        $this->assertEquals('1983-20-01', $item->birthDate());
+        $this->assertEquals('London', $item->birthPlace());
 
         $request = $this->httpClient->getLastRequest();
         $this->assertEquals('/rosfin/catalogue/check', $request->getUri()->getPath());

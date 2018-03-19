@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace Damax\Client;
 
-final class RosfinCheck
-{
-    private const TYPE_PERSON = 4;
+use ArrayIterator;
+use Countable;
+use Iterator;
+use IteratorAggregate;
 
+final class RosfinCheck implements IteratorAggregate, Countable
+{
     private $data;
 
     public function __construct(array $data)
@@ -15,58 +18,26 @@ final class RosfinCheck
         $this->data = $data;
     }
 
-    public function id(): int
+    public function count(): int
     {
-        return $this->data['id'];
+        return count($this->data);
     }
 
-    public function type(): int
+    /**
+     * @return RosfinItem[]
+     */
+    public function getIterator(): Iterator
     {
-        return $this->data['type'];
-    }
-
-    public function person(): bool
-    {
-        return self::TYPE_PERSON === $this->type();
-    }
-
-    public function fullName(): array
-    {
-        return $this->data['fullName'];
-    }
-
-    public function birthDate(): ?string
-    {
-        return $this->data['birthDate'] ?? null;
-    }
-
-    public function birthPlace(): ?string
-    {
-        return $this->data['birthPlace'] ?? null;
-    }
-
-    public function description(): ?string
-    {
-        return $this->data['description'] ?? null;
-    }
-
-    public function address(): ?string
-    {
-        return $this->data['address'] ?? null;
-    }
-
-    public function resolution(): ?string
-    {
-        return $this->data['resolution'] ?? null;
-    }
-
-    public function passport(): ?string
-    {
-        return $this->data['passport'] ?? null;
+        return new ArrayIterator(array_map([$this, 'itemFactory'], $this->data));
     }
 
     public function toArray(): array
     {
         return $this->data;
+    }
+
+    private function itemFactory(array $item): RosfinItem
+    {
+        return new RosfinItem($item);
     }
 }
