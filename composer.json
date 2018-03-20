@@ -1,4 +1,5 @@
 {
+  "name": "damax/client",
   "require": {
     "php-http/httplug": "^1.1",
     "php-http/client-common": "^1.7",
