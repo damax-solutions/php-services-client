@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Damax\Client;
+namespace Damax\Services\Client;
 
 final class PassportCheck
 {

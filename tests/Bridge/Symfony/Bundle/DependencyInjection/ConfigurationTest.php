@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Damax\Client\Tests\Bridge\Symfony\Bundle\DependencyInjection;
+namespace Damax\Services\Client\Tests\Bridge\Symfony\Bundle\DependencyInjection;
 
-use Damax\Client\Bridge\Symfony\Bundle\DependencyInjection\Configuration;
+use Damax\Services\Client\Bridge\Symfony\Bundle\DependencyInjection\Configuration;
 use Matthias\SymfonyConfigTest\PhpUnit\ConfigurationTestCaseTrait;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

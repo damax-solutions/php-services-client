@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Damax\Client\Bridge\Symfony\Bundle\Controller;
+namespace Damax\Services\Client\Bridge\Symfony\Bundle\Controller;
 
-use Damax\Client\Client;
-use Damax\Client\InvalidRequestException;
+use Damax\Services\Client\Client;
+use Damax\Services\Client\InvalidRequestException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

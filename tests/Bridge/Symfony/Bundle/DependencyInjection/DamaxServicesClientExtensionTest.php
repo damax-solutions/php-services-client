@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Damax\Client\Tests\Bridge\Symfony\Bundle\DependencyInjection;
+namespace Damax\Services\Client\Tests\Bridge\Symfony\Bundle\DependencyInjection;
 
-use Damax\Client\Bridge\Symfony\Bundle\DependencyInjection\DamaxClientExtension;
-use Damax\Client\Client;
-use Damax\Client\Configuration as ClientConfiguration;
+use Damax\Services\Client\Bridge\Symfony\Bundle\DependencyInjection\DamaxServicesClientExtension;
+use Damax\Services\Client\Client;
+use Damax\Services\Client\Configuration as ClientConfiguration;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
 use Symfony\Component\DependencyInjection\Reference;
 
-class DamaxClientExtensionTest extends AbstractExtensionTestCase
+class DamaxServicesClientExtensionTest extends AbstractExtensionTestCase
 {
     /**
      * @test
@@ -42,7 +42,7 @@ class DamaxClientExtensionTest extends AbstractExtensionTestCase
     protected function getContainerExtensions(): array
     {
         return [
-            new DamaxClientExtension(),
+            new DamaxServicesClientExtension(),
         ];
     }
 }

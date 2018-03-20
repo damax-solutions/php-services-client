@@ -5,7 +5,7 @@
 
 declare(strict_types=1);
 
-use Damax\Client\Configuration;
+use Damax\Services\Client\Configuration;
 
 require __DIR__ . '/../vendor/autoload.php';
 

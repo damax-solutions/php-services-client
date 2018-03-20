@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Damax\Client\Bridge\Symfony\Bundle\DependencyInjection;
+namespace Damax\Services\Client\Bridge\Symfony\Bundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -13,7 +13,7 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
 
-        $rootNode = $treeBuilder->root('damax_client');
+        $rootNode = $treeBuilder->root('damax_services_client');
         $rootNode
             ->children()
                 ->scalarNode('api_key')->isRequired()->end()

@@ -3,24 +3,24 @@
 Build image:
 
 ```bash
-$ docker build -t damax-client .
+$ docker build -t damax-services-client-php .
 ```
 
 Install dependencies:
 
 ```bash
-$ docker run --rm -v $(pwd):/app -w /app damax-client composer install
+$ docker run --rm -v $(pwd):/app -w /app damax-services-client-php composer install
 ```
 
 Fix php coding standards:
 
 ```bash
-$ docker run --rm -v $(pwd):/app -w /app damax-client ./vendor/bin/php-cs-fixer fix
+$ docker run --rm -v $(pwd):/app -w /app damax-services-client-php ./vendor/bin/php-cs-fixer fix
 ```
 
 Running tests:
 
 ```bash
-$ docker run --rm -v $(pwd):/app -w /app damax-client ./vendor/bin/simple-phpunit
-$ docker run --rm -v $(pwd):/app -w /app damax-client ./bin/phpunit-coverage
+$ docker run --rm -v $(pwd):/app -w /app damax-services-client-php ./vendor/bin/simple-phpunit
+$ docker run --rm -v $(pwd):/app -w /app damax-services-client-php ./bin/phpunit-coverage
 ```

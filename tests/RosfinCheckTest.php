@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Damax\Client\Tests;
+namespace Damax\Services\Client\Tests;
 
-use Damax\Client\RosfinCheck;
-use Damax\Client\RosfinItem;
+use Damax\Services\Client\RosfinCheck;
+use Damax\Services\Client\RosfinItem;
 use PHPUnit\Framework\TestCase;
 
 class RosfinCheckTest extends TestCase

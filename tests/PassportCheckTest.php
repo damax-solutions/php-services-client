@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Damax\Client\Tests;
+namespace Damax\Services\Client\Tests;
 
-use Damax\Client\PassportCheck;
+use Damax\Services\Client\PassportCheck;
 use PHPUnit\Framework\TestCase;
 
 class PassportCheckTest extends TestCase

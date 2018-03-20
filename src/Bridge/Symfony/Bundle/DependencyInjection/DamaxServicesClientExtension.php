@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Damax\Client\Bridge\Symfony\Bundle\DependencyInjection;
+namespace Damax\Services\Client\Bridge\Symfony\Bundle\DependencyInjection;
 
-use Damax\Client\Client;
-use Damax\Client\Configuration as ClientConfiguration;
+use Damax\Services\Client\Client;
+use Damax\Services\Client\Configuration as ClientConfiguration;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
 
-class DamaxClientExtension extends ConfigurableExtension
+class DamaxServicesClientExtension extends ConfigurableExtension
 {
     protected function loadInternal(array $config, ContainerBuilder $container)
     {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Damax\Client;
+namespace Damax\Services\Client;
 
 use Http\Message\Authentication;
 use Psr\Http\Message\RequestInterface;

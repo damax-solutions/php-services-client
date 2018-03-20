@@ -1,5 +1,5 @@
 {
-  "name": "damax/client",
+  "name": "damax/services-client",
   "require": {
     "php-http/httplug": "^1.1",
     "php-http/client-common": "^1.7",
@@ -20,10 +20,10 @@
     "symfony/var-dumper": "^4.0"
   },
   "autoload": {
-    "psr-4": { "Damax\\Client\\": "src/" }
+    "psr-4": { "Damax\\Services\\Client\\": "src/" }
   },
   "autoload-dev": {
-    "psr-4": { "Damax\\Client\\Tests\\": "tests/" }
+    "psr-4": { "Damax\\Services\\Client\\Tests\\": "tests/" }
   },
   "config": {
     "sort-packages": true

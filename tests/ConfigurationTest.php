@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Damax\Client\Tests;
+namespace Damax\Services\Client\Tests;
 
-use Damax\Client\Configuration;
+use Damax\Services\Client\Configuration;
 use Http\Message\MessageFactory\GuzzleMessageFactory;
 use Http\Message\RequestFactory;
 use Http\Mock\Client as MockClient;

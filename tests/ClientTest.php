@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Damax\Client\Tests;
+namespace Damax\Services\Client\Tests;
 
-use Damax\Client\Client;
-use Damax\Client\InvalidRequestException;
-use Damax\Client\RosfinItem;
+use Damax\Services\Client\Client;
+use Damax\Services\Client\InvalidRequestException;
+use Damax\Services\Client\RosfinItem;
 use Http\Client\Common\HttpMethodsClient;
 use Http\Message\MessageFactory;
 use Http\Message\MessageFactory\GuzzleMessageFactory;

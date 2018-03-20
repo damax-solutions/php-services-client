@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Damax\Client\Bridge\Symfony\Console\Command;
+namespace Damax\Services\Client\Bridge\Symfony\Console\Command;
 
 use Damax\Client\Client;
 use Symfony\Component\Console\Command\Command;

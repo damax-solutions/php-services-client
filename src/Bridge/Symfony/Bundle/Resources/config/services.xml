@@ -7,9 +7,9 @@
 
         <defaults autowire="true" autoconfigure="true" public="false" />
 
-        <prototype namespace="Damax\Client\Bridge\Symfony\Console\Command\" resource="../../../Console/Command" />
+        <prototype namespace="Damax\Services\Client\Bridge\Symfony\Console\Command\" resource="../../../Console/Command" />
 
-        <prototype namespace="Damax\Client\Bridge\Symfony\Bundle\Controller\" resource="../../Controller">
+        <prototype namespace="Damax\Services\Client\Bridge\Symfony\Bundle\Controller\" resource="../../Controller">
             <tag name="controller.service_arguments" />
         </prototype>
 

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Damax\Client\Tests;
+namespace Damax\Services\Client\Tests;
 
-use Damax\Client\TokenAuthentication;
+use Damax\Services\Client\TokenAuthentication;
 use Http\Message\MessageFactory\GuzzleMessageFactory;
 use PHPUnit\Framework\TestCase;
 
