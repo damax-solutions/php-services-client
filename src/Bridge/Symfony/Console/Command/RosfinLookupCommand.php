@@ -5,14 +5,17 @@ declare(strict_types=1);
 namespace Damax\Services\Client\Bridge\Symfony\Console\Command;
 
 use Damax\Services\Client\Client;
+use Damax\Services\Client\InvalidRequestException;
+use Damax\Services\Client\RosfinItem;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 class RosfinLookupCommand extends Command
 {
-    protected static $defaultName = 'rosfin:lookup';
+    protected static $defaultName = 'damax:rosfin:lookup';
 
     private $client;
 
@@ -23,13 +26,49 @@ class RosfinLookupCommand extends Command
         $this->client = $client;
     }
 
+    protected function configure()
+    {
+        $this
+            ->setDescription('Lookup rosfin catalogue.')
+            ->addArgument('fullName', InputArgument::REQUIRED, 'Full name.')
+            ->addArgument('birthDate', InputArgument::OPTIONAL, 'Birth date.')
+        ;
+    }
+
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $io = new SymfonyStyle($input, $output);
 
-        $check = $this->client->checkRosfin(
-            $input->getArgument('fullName'),
-            $input->getArgument('birthDate')
-        );
+        try {
+            $check = $this->client->checkRosfin(
+                $input->getArgument('fullName'),
+                $input->getArgument('birthDate')
+            );
+        } catch (InvalidRequestException $e) {
+            return $io->error($e->getMessage());
+        }
+
+        if (!count($check)) {
+            return $io->success('Not found.');
+        }
+
+        $format = function (RosfinItem $terrorist): array {
+            return [
+                ['ID', $terrorist->id()],
+                ['Type', $terrorist->type()],
+                ['Full name', implode("\n", $terrorist->fullName())],
+                ['Birth date', $terrorist->birthDate() ? $terrorist->birthDate()->format('Y-m-d') : '-'],
+                ['Birth place', $terrorist->birthPlace() ?: '-'],
+                ['Description', $terrorist->description() ? mb_substr($terrorist->description(), 0, 120) : '-'],
+                ['Address', $terrorist->address() ?: '-'],
+                ['Resolution', $terrorist->resolution() ?: '-'],
+                ['Passport', $terrorist->passport() ?: '-'],
+            ];
+        };
+
+        foreach ($check as $item) {
+            $io->newLine();
+            $io->table(['Field', 'Value'], $format($item));
+        }
     }
 }
