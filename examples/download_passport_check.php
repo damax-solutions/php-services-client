@@ -14,4 +14,5 @@ $config = new Configuration('https://product.damax.solutions/api', 'token');
 echo (string) $config
     ->getClient()
     ->downloadPassportCheck('74 05 558551')
+    ->getBody()
 ;
