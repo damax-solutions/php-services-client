@@ -1,0 +1,12 @@
+
+rosfin:
+    message:
+        check_passed: Invader checked passed.
+        check_failed: Invader checked failed.
+        validating: Invader check...
+
+mvd:
+    message:
+        validation_passed: Passport validation passed.
+        validation_failed: Passport validation failed!
+        validating: Passport validation check...

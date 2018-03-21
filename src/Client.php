@@ -7,7 +7,6 @@ namespace Damax\Services\Client;
 use Http\Client\Common\HttpMethodsClient;
 use Http\Client\HttpClient;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\StreamInterface;
 
 class Client
 {
@@ -36,7 +35,7 @@ class Client
     /**
      * @throws InvalidRequestException
      */
-    public function downloadPassportCheck(string $input): StreamInterface
+    public function downloadPassportCheck(string $input): ResponseInterface
     {
         $response = $this->httpClient->get('/mvd/passports/check?input=' . urlencode($input), ['accept' => 'application/pdf']);
 
@@ -44,7 +43,7 @@ class Client
             throw new InvalidRequestException('Invalid request.');
         }
 
-        return $response->getBody();
+        return $response;
     }
 
     /**

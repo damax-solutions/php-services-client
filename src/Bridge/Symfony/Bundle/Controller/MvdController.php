@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
@@ -31,5 +32,28 @@ class MvdController
         }
 
         return JsonResponse::create($check->toArray());
+    }
+
+    /**
+     * @Route("/passports/check/download")
+     *
+     * @throws BadRequestHttpException
+     */
+    public function downloadPassportCheckAction(Request $request, Client $client): Response
+    {
+        try {
+            $response = $client->downloadPassportCheck($request->query->get('input', ''));
+        } catch (InvalidRequestException $e) {
+            throw new BadRequestHttpException('Bad request', $e);
+        }
+
+        $fn = function () use ($response) {
+            echo $response->getBody()->getContents();
+        };
+
+        return (new StreamedResponse($fn, 200, $response->getHeaders()))
+            ->setProtocolVersion($response->getProtocolVersion())
+            ->setStatusCode($response->getStatusCode())
+        ;
     }
 }
