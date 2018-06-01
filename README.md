@@ -1,26 +1,11 @@
-## Development
+# Damax Services Client
 
-Build image:
+[![Build Status](https://travis-ci.org/lakiboy/services-client.svg?branch=master)](https://travis-ci.org/lakiboy/services-client) [![Coverage Status](https://coveralls.io/repos/lakiboy/services-client/badge.svg?branch=master&service=github)](https://coveralls.io/github/lakiboy/services-client?branch=master)
 
-```bash
-$ docker build -t damax-services-client-php .
-```
+PHP client for Damax Services.
 
-Install dependencies:
+## Documentation
 
-```bash
-$ docker run --rm -v $(pwd):/app -w /app damax-services-client-php composer install
-```
+Topics:
 
-Fix php coding standards:
-
-```bash
-$ docker run --rm -v $(pwd):/app -w /app damax-services-client-php ./vendor/bin/php-cs-fixer fix
-```
-
-Running tests:
-
-```bash
-$ docker run --rm -v $(pwd):/app -w /app damax-services-client-php ./vendor/bin/simple-phpunit
-$ docker run --rm -v $(pwd):/app -w /app damax-services-client-php ./bin/phpunit-coverage
-```
+- [Development](doc/development.md)

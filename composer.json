@@ -1,5 +1,6 @@
 {
   "name": "damax/services-client",
+  "description": "PHP client for Damax Services.",
   "require": {
     "php-http/httplug": "^1.1",
     "php-http/client-common": "^1.7",
@@ -8,6 +9,7 @@
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^2.10",
     "matthiasnoback/symfony-dependency-injection-test": "^3.0",
+    "php-coveralls/php-coveralls": "^2.1",
     "php-http/guzzle6-adapter": "^1.1",
     "php-http/logger-plugin": "^1.0",
     "php-http/mock-client": "^1.1",
