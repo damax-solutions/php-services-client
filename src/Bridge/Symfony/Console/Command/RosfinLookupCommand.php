@@ -45,11 +45,15 @@ class RosfinLookupCommand extends Command
                 $input->getArgument('birthDate')
             );
         } catch (InvalidRequestException $e) {
-            return $io->error($e->getMessage());
+            $io->error($e->getMessage());
+
+            return 1;
         }
 
         if (!count($check)) {
-            return $io->success('Not found.');
+            $io->success('Not found.');
+
+            return 0;
         }
 
         $format = function (RosfinItem $terrorist): array {
@@ -57,7 +61,7 @@ class RosfinLookupCommand extends Command
                 ['ID', $terrorist->id()],
                 ['Type', $terrorist->type()],
                 ['Full name', implode("\n", $terrorist->fullName())],
-                ['Birth date', $terrorist->birthDate() ? $terrorist->birthDate()->format('Y-m-d') : '-'],
+                ['Birth date', $terrorist->birthDate() ?: '-'],
                 ['Birth place', $terrorist->birthPlace() ?: '-'],
                 ['Description', $terrorist->description() ? mb_substr($terrorist->description(), 0, 120) : '-'],
                 ['Address', $terrorist->address() ?: '-'],

@@ -35,10 +35,14 @@ class MvdLookupCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $io = new SymfonyStyle($input, $output);
+
         try {
             $result = $this->client->checkPassport($input->getArgument('number'))->toArray();
         } catch (InvalidRequestException $e) {
-            return $io->error($e->getMessage());
+            $io->error($e->getMessage());
+
+            return 1;
         }
 
         $row = function ($value, string $key): array {
