@@ -73,7 +73,7 @@ class ClientTest extends TestCase
         $this->assertEquals('558551', $result->number());
 
         $request = $this->httpClient->getLastRequest();
-        $this->assertEquals('/mvd/passports/check', $request->getUri()->getPath());
+        $this->assertEquals('/mvd/passports', $request->getUri()->getPath());
         $this->assertEquals('input=0123456789', $request->getUri()->getQuery());
     }
 
@@ -91,7 +91,7 @@ class ClientTest extends TestCase
         $this->assertSame($response, $this->client->downloadPassportCheck('0123456789'));
 
         $request = $this->httpClient->getLastRequest();
-        $this->assertEquals('/mvd/passports/check', $request->getUri()->getPath());
+        $this->assertEquals('/mvd/passports', $request->getUri()->getPath());
     }
 
     /**
@@ -141,7 +141,7 @@ class ClientTest extends TestCase
         $this->assertEquals('London', $item->birthPlace());
 
         $request = $this->httpClient->getLastRequest();
-        $this->assertEquals('/rosfin/catalogue/check', $request->getUri()->getPath());
+        $this->assertEquals('/rosfin/catalogue', $request->getUri()->getPath());
         $this->assertEquals('fullName=Jane+Doe&birthDate=1983-20-01', $request->getUri()->getQuery());
     }
 

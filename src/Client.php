@@ -27,7 +27,7 @@ class Client
      */
     public function checkPassport(string $input): PassportCheck
     {
-        $response = $this->httpClient->get('/mvd/passports/check?input=' . urlencode($input), ['accept' => 'application/json']);
+        $response = $this->httpClient->get('/mvd/passports?input=' . urlencode($input), ['accept' => 'application/json']);
 
         return new PassportCheck($this->parseResponse($response));
     }
@@ -37,7 +37,7 @@ class Client
      */
     public function downloadPassportCheck(string $input): ResponseInterface
     {
-        $response = $this->httpClient->get('/mvd/passports/check?input=' . urlencode($input), ['accept' => 'application/pdf']);
+        $response = $this->httpClient->get('/mvd/passports?input=' . urlencode($input), ['accept' => 'application/pdf']);
 
         if ($response->getStatusCode() >= 400) {
             throw new InvalidRequestException('Invalid request.');
@@ -51,7 +51,7 @@ class Client
      */
     public function checkRosfin(string $fullName, string $birthDate = null): RosfinCheck
     {
-        $response = $this->httpClient->get('/rosfin/catalogue/check?' . http_build_query([
+        $response = $this->httpClient->get('/rosfin/catalogue?' . http_build_query([
             'fullName' => $fullName,
             'birthDate' => $birthDate,
         ]));
