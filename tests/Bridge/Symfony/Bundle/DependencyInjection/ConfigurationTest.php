@@ -24,7 +24,7 @@ class ConfigurationTest extends TestCase
 
         $this->assertProcessedConfigurationEquals([$config], [
             'api_key' => 'qwerty12',
-            'endpoint' => 'https://product.damax.solutions/api',
+            'endpoint' => 'https://api.damax.solutions/services',
         ]);
     }
 

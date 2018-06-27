@@ -9,7 +9,7 @@ use Damax\Services\Client\Configuration;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$config = new Configuration('https://product.damax.solutions/api', 'token');
+$config = new Configuration('https://api.damax.solutions/services', 'token');
 
 echo (string) $config
     ->getClient()

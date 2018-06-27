@@ -34,7 +34,7 @@ class ConfigurationTest extends TestCase
      */
     public function it_creates_client()
     {
-        (new Configuration('https://product.damax.solutions/api', 'XYZ'))
+        (new Configuration('https://api.damax.solutions/services', 'XYZ'))
             ->setLogger($this->logger)
             ->setHttpClient($httpClient = new MockClient($this->messageFactory))
             ->getClient()
@@ -45,8 +45,8 @@ class ConfigurationTest extends TestCase
         $request = $httpClient->getLastRequest();
 
         $this->assertEquals('https', $request->getUri()->getScheme());
-        $this->assertEquals('product.damax.solutions', $request->getUri()->getHost());
-        $this->assertEquals('/api/foo/bar', $request->getUri()->getPath());
+        $this->assertEquals('api.damax.solutions', $request->getUri()->getHost());
+        $this->assertEquals('/services/foo/bar', $request->getUri()->getPath());
         $this->assertTrue($request->hasHeader('authorization'));
 
         $logs = $this->logger->cleanLogs();

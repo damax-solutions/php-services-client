@@ -19,7 +19,7 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('api_key')->isRequired()->end()
                 ->scalarNode('endpoint')
                     ->cannotBeEmpty()
-                    ->defaultValue('https://product.damax.solutions/api')
+                    ->defaultValue('https://api.damax.solutions/services')
                 ->end()
             ->end()
         ;
