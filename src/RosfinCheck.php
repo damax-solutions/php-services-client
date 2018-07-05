@@ -23,9 +23,6 @@ final class RosfinCheck implements IteratorAggregate, Countable
         return count($this->data);
     }
 
-    /**
-     * @return RosfinItem[]
-     */
     public function getIterator(): Iterator
     {
         return new ArrayIterator(array_map([$this, 'itemFactory'], $this->data));
