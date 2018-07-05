@@ -27,6 +27,13 @@
   "autoload-dev": {
     "psr-4": { "Damax\\Services\\Client\\Tests\\": "tests/" }
   },
+  "scripts": {
+    "cs": "php-cs-fixer fix",
+    "test": "simple-phpunit",
+    "test-cc": "./bin/phpunit-coverage",
+    "test-ci": "simple-phpunit --coverage-clover=build/logs/clover.xml",
+    "test-publish": "php-coveralls"
+  },
   "config": {
     "sort-packages": true
   },

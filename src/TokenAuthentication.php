@@ -7,7 +7,7 @@ namespace Damax\Services\Client;
 use Http\Message\Authentication;
 use Psr\Http\Message\RequestInterface;
 
-class TokenAuthentication implements Authentication
+final class TokenAuthentication implements Authentication
 {
     private $token;
 

@@ -6,6 +6,6 @@ namespace Damax\Services\Client;
 
 use InvalidArgumentException;
 
-class InvalidRequestException extends InvalidArgumentException
+final class InvalidRequestException extends InvalidArgumentException
 {
 }
