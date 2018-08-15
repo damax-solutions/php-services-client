@@ -15,7 +15,7 @@ class RosfinCheckTest extends TestCase
      */
     public function it_creates_rosfin_check_result()
     {
-        $result = new RosfinCheck([
+        $result = RosfinCheck::fromArray([
             [
                 'id' => 123,
                 'type' => 4,

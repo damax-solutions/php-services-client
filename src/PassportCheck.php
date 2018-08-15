@@ -12,9 +12,9 @@ final class PassportCheck
 
     private $data;
 
-    public function __construct(array $data)
+    public static function fromArray(array $data): self
     {
-        $this->data = $data;
+        return new self($data);
     }
 
     public function source(): string
@@ -60,5 +60,10 @@ final class PassportCheck
     public function toArray(): array
     {
         return $this->data;
+    }
+
+    private function __construct(array $data)
+    {
+        $this->data = $data;
     }
 }

@@ -14,7 +14,7 @@ class RosfinItemTest extends TestCase
      */
     public function it_creates_rosfin_item()
     {
-        $result = new RosfinItem([
+        $result = RosfinItem::fromArray([
             'id' => 123,
             'type' => 4,
             'fullName' => ['John Doe', 'Jane Doe'],

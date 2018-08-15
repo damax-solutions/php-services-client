@@ -50,7 +50,7 @@ class MvdLookupCommandTest extends KernelTestCase
             ->expects($this->once())
             ->method('checkPassport')
             ->with('0000000001')
-            ->willReturn(new PassportCheck([
+            ->willReturn(PassportCheck::fromArray([
                 'source' => '0000000001',
                 'code' => 1,
                 'message' => 'Valid passport',
@@ -85,7 +85,7 @@ CONSOLE;
     /**
      * @test
      */
-    public function it_throws_request_exception()
+    public function it_fails_to_perform_check()
     {
         $this->client
             ->expects($this->once())

@@ -6,6 +6,7 @@ namespace Damax\Services\Client;
 
 use Http\Client\Common\HttpMethodsClient;
 use Http\Client\HttpClient;
+use InvalidArgumentException;
 use Psr\Http\Message\ResponseInterface;
 
 class Client
@@ -29,7 +30,26 @@ class Client
     {
         $response = $this->httpClient->get('/mvd/passports?input=' . urlencode($input), ['accept' => 'application/json']);
 
-        return new PassportCheck($this->parseResponse($response));
+        return PassportCheck::fromArray($this->parseResponse($response));
+    }
+
+    /**
+     * @return PassportCheck[]
+     *
+     * @throws InvalidArgumentException
+     * @throws InvalidRequestException
+     */
+    public function checkMultiplePassports(array $inputs): array
+    {
+        if (!count($inputs)) {
+            throw new InvalidArgumentException('At least one element required.');
+        }
+
+        $input = implode(',', array_map('urlencode', $inputs));
+
+        $response = $this->httpClient->get('/mvd/passports/multiple?input=' . $input, ['accept' => 'application/json']);
+
+        return array_map([PassportCheck::class, 'fromArray'], $this->parseResponse($response));
     }
 
     /**
@@ -56,7 +76,7 @@ class Client
             'birthDate' => $birthDate,
         ]));
 
-        return new RosfinCheck($this->parseResponse($response));
+        return RosfinCheck::fromArray($this->parseResponse($response));
     }
 
     /**

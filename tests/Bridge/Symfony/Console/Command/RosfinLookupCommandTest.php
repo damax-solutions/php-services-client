@@ -40,7 +40,7 @@ class RosfinLookupCommandTest extends KernelTestCase
     /**
      * @test
      */
-    public function it_throws_request_exception()
+    public function it_fails_to_perform_check()
     {
         $this->client
             ->expects($this->once())
@@ -64,7 +64,7 @@ class RosfinLookupCommandTest extends KernelTestCase
             ->expects($this->once())
             ->method('checkRosfin')
             ->with('John Doe', '1983-01-20')
-            ->willReturn(new RosfinCheck([]))
+            ->willReturn(RosfinCheck::fromArray([]))
         ;
 
         $code = $this->tester->execute(['command' => 'damax:rosfin:lookup', 'fullName' => 'John Doe', 'birthDate' => '1983-01-20']);
@@ -82,7 +82,7 @@ class RosfinLookupCommandTest extends KernelTestCase
             ->expects($this->once())
             ->method('checkRosfin')
             ->with('John Doe', '1983-01-20')
-            ->willReturn(new RosfinCheck([
+            ->willReturn(RosfinCheck::fromArray([
                 [
                     'id' => 3302081139,
                     'type' => 4,

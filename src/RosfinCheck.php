@@ -13,9 +13,9 @@ final class RosfinCheck implements IteratorAggregate, Countable
 {
     private $data;
 
-    public function __construct(array $data)
+    public static function fromArray(array $data): self
     {
-        $this->data = $data;
+        return new self($data);
     }
 
     public function count(): int
@@ -25,7 +25,7 @@ final class RosfinCheck implements IteratorAggregate, Countable
 
     public function getIterator(): Iterator
     {
-        return new ArrayIterator(array_map([$this, 'itemFactory'], $this->data));
+        return new ArrayIterator(array_map([RosfinItem::class, 'fromArray'], $this->data));
     }
 
     public function toArray(): array
@@ -33,8 +33,8 @@ final class RosfinCheck implements IteratorAggregate, Countable
         return $this->data;
     }
 
-    private function itemFactory(array $item): RosfinItem
+    private function __construct(array $data)
     {
-        return new RosfinItem($item);
+        $this->data = $data;
     }
 }

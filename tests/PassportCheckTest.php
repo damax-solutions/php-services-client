@@ -14,7 +14,7 @@ class PassportCheckTest extends TestCase
      */
     public function it_creates_passport_check_result()
     {
-        $result = new PassportCheck([
+        $result = PassportCheck::fromArray([
             'source' => '74 05 558551',
             'code' => 2,
             'message' => 'Invalid passport',
@@ -36,7 +36,7 @@ class PassportCheckTest extends TestCase
      */
     public function it_creates_malformed_passport_check_result()
     {
-        $result = new PassportCheck([
+        $result = PassportCheck::fromArray([
             'source' => '743',
             'code' => 3,
             'message' => 'Malformed passport',

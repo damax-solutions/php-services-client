@@ -10,9 +10,9 @@ final class RosfinItem
 
     private $data;
 
-    public function __construct(array $data)
+    public static function fromArray(array $data): self
     {
-        $this->data = $data;
+        return new self($data);
     }
 
     public function id(): int
@@ -68,5 +68,10 @@ final class RosfinItem
     public function toArray(): array
     {
         return $this->data;
+    }
+
+    private function __construct(array $data)
+    {
+        $this->data = $data;
     }
 }
