@@ -16,4 +16,4 @@ $result = $config
     ->checkMultiplePassports(['74 05 558551', '46 05 685971'])
 ;
 
-dump($result);
+var_dump($result);

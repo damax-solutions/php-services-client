@@ -16,4 +16,4 @@ $result = $config
     ->checkRosfin('Соколовский Руслан Геннадьевич')
 ;
 
-dump($result);
+var_dump($result);

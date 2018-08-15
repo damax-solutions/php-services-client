@@ -16,4 +16,4 @@ $result = $config
     ->checkPassport('74 05 558551')
 ;
 
-dump($result);
+var_dump($result);
