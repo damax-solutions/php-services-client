@@ -13,7 +13,7 @@ $config = new Configuration('https://api.damax.solutions/services', 'token');
 
 $result = $config
     ->getClient()
-    ->checkRosfin('Соколовский Руслан Геннадьевич')
+    ->checkRosfin('Соколовский Руслан Геннадьевич', '1994-10-20')
 ;
 
 var_dump($result);

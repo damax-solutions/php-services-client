@@ -24,6 +24,11 @@ Check if person is listed as participant of extremistic activity or terrorism by
 
 See [example](examples/check_rosfin.php).
 
+## Description in Russian
+
+- Проверка паспорта по [списку недействительных российских паспортов](http://xn--b1afk4ade4e.xn--b1ab2a0a.xn--b1aew.xn--p1ai/info-service.htm?sid=2000) МВД.
+- Поиск по перечню организаций и физических лиц [Росфинмониторинга](http://www.fedsfm.ru/documents/terr-list).
+
 ## Access
 
 Contact _Damax Solutions_ to get an API key.
