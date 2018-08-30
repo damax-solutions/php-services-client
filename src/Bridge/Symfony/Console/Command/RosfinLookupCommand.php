@@ -56,23 +56,24 @@ final class RosfinLookupCommand extends Command
             return 0;
         }
 
-        $format = function (RosfinItem $terrorist): array {
-            return [
-                ['ID', $terrorist->id()],
-                ['Type', $terrorist->type()],
-                ['Full name', implode("\n", $terrorist->fullName())],
-                ['Birth date', $terrorist->birthDate() ?: '-'],
-                ['Birth place', $terrorist->birthPlace() ?: '-'],
-                ['Description', $terrorist->description() ? mb_substr($terrorist->description(), 0, 120) : '-'],
-                ['Address', $terrorist->address() ?: '-'],
-                ['Resolution', $terrorist->resolution() ?: '-'],
-                ['Passport', $terrorist->passport() ?: '-'],
-            ];
-        };
-
         foreach ($check as $item) {
             $io->newLine();
-            $io->table(['Field', 'Value'], $format($item));
+            $io->table(['Field', 'Value'], $this->formatItem($item));
         }
+    }
+
+    private function formatItem(RosfinItem $terrorist): array
+    {
+        return [
+            ['ID', $terrorist->id()],
+            ['Type', $terrorist->type()],
+            ['Full name', implode("\n", $terrorist->fullName())],
+            ['Birth date', $terrorist->birthDate() ?: '-'],
+            ['Birth place', $terrorist->birthPlace() ?: '-'],
+            ['Description', $terrorist->description() ? mb_substr($terrorist->description(), 0, 120) : '-'],
+            ['Address', $terrorist->address() ?: '-'],
+            ['Resolution', $terrorist->resolution() ?: '-'],
+            ['Passport', $terrorist->passport() ?: '-'],
+        ];
     }
 }
