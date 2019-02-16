@@ -1,6 +1,6 @@
 # Damax Services Client
 
-[![Build Status](https://travis-ci.org/lakiboy/damax-services-client-php.svg?branch=master)](https://travis-ci.org/lakiboy/damax-services-client-php) [![Coverage Status](https://coveralls.io/repos/lakiboy/damax-services-client-php/badge.svg?branch=master&service=github)](https://coveralls.io/github/lakiboy/damax-services-client-php?branch=master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/lakiboy/damax-services-client-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/lakiboy/damax-services-client-php/?branch=master)
+[![Build Status](https://travis-ci.org/damax-solutions/php-services-client.svg?branch=master)](https://travis-ci.org/damax-solutions/php-services-client) [![Coverage Status](https://coveralls.io/repos/damax-solutions/php-services-client/badge.svg?branch=master&service=github)](https://coveralls.io/github/damax-solutions/php-services-client?branch=master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/damax-solutions/php-services-client/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/damax-solutions/php-services-client/?branch=master)
 
 PHP client for Damax Services. Provides integration with [Symfony Framework](https://github.com/symfony/symfony).
 
@@ -35,4 +35,8 @@ Contact _Damax Solutions_ to get an API key.
 
 ## Contribute
 
-If you wish to contribute take a look how to [run the code locally](doc/development.md) in Docker.
+Install dependencies and run tests:
+
+```bash
+$ make
+```
