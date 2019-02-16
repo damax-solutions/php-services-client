@@ -4,6 +4,12 @@
 
 PHP client for Damax Services. Provides integration with [Symfony Framework](https://github.com/symfony/symfony).
 
+## Installation
+
+```bash
+$ composer require damax/services-client
+```
+
 ## Description
 
 This is the _HTTP_ client for the services provided by _Damax Solutions_.
