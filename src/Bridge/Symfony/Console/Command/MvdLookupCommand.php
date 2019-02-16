@@ -38,7 +38,7 @@ final class MvdLookupCommand extends Command
         $io = new SymfonyStyle($input, $output);
 
         try {
-            $result = $this->client->checkPassport($input->getArgument('number'))->toArray();
+            $result = $this->client->checkPassport((string) $input->getArgument('number'))->toArray();
         } catch (InvalidRequestException $e) {
             $io->error($e->getMessage());
 

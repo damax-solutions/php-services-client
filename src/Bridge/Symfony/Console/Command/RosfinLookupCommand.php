@@ -41,8 +41,8 @@ final class RosfinLookupCommand extends Command
 
         try {
             $check = $this->client->checkRosfin(
-                $input->getArgument('fullName'),
-                $input->getArgument('birthDate')
+                (string) $input->getArgument('fullName'),
+                (string) $input->getArgument('birthDate')
             );
         } catch (InvalidRequestException $e) {
             $io->error($e->getMessage());
