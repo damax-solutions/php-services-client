@@ -1,6 +1,7 @@
 {
   "name": "damax/services-client",
   "description": "PHP client for Damax Services.",
+  "license": "MIT",
   "require": {
     "php-http/httplug": "^1.1",
     "php-http/client-common": "^1.7",
